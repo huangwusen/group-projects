@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.group.mapper.CaseTbMapper">
+    <resultMap id="BaseResultMap" type="com.qf.group.domain.entity.CaseTb">
+        <id column="case_id" jdbcType="INTEGER" property="caseId"/>
+        <result column="case_no" jdbcType="INTEGER" property="caseNo"/>
+        <result column="case_name" jdbcType="VARCHAR" property="caseName"/>
+        <result column="case_create_date" jdbcType="TIMESTAMP" property="caseCreateDate"/>
+        <result column="case_update" jdbcType="TIMESTAMP" property="caseUpdate"/>
+        <result column="case_department" jdbcType="VARCHAR" property="caseDepartment"/>
+        <result column="case_is_del" jdbcType="INTEGER" property="caseIsDel"/>
+    </resultMap>
+    <resultMap id="associationResultMap" type="com.qf.group.domain.entity.CaseTb" extends="BaseResultMap">
+        <!--   表示一对一的关系-->
+        <!--    <association property="caseNo" javaType="java.lang.Integer"  resultMap="com.qf.group.mapper.CaseTbMapper.BaseResultMap">-->
+        <!--    </association>-->
+    </resultMap>
+    <!--  要开启驼峰命名法-->
+    <select id="selectByPublicNo" resultType="CaseTbDto">
+        select *
+        from case_tb c LEFT JOIN
+        state s on c.case_no=s.state_no
+        where case_no = #{no}
+  </select>
+    <select id="selectByPublicName" resultType="com.qf.group.domain.dto.CaseTbDto">
+        select *
+        from case_tb c LEFT JOIN
+        state s on c.case_no=s.state_no
+        where case_name = #{casenaem}
+    </select>
+    <select id="selectByJudgmentNo" resultType="com.qf.group.domain.dto.CaseTbDto">
+        select *
+        from case_tb c LEFT JOIN
+        state s on c.case_no=s.state_no
+        where state_judgment = 0 and case_no = #{no}
+    </select>
+    <select id="selectByJudgmentName" resultType="com.qf.group.domain.dto.CaseTbDto">
+        select *
+        from case_tb c LEFT JOIN
+        state s on c.case_no=s.state_no
+        where state_judgment = 0 and case_name = #{casenaem}
+  </select>
+    <select id="selectBySubmitNo" resultType="com.qf.group.domain.dto.CaseTbDto">
+        select *
+        from case_tb c LEFT JOIN
+        state s on c.case_no=s.state_no
+        where state_submit = 0 and case_no = #{no}
+    </select>
+    <select id="selectBySubmitName" resultType="com.qf.group.domain.dto.CaseTbDto">
+        select *
+        from case_tb c LEFT JOIN
+        state s on c.case_no=s.state_no
+        where state_submit = 0 and case_name = #{casenaem}
+    </select>
+</mapper>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.group.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.qf.group.domain.entity.User">
+    <id column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="user_no" jdbcType="INTEGER" property="userNo" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="user_sex" jdbcType="INTEGER" property="userSex" />
+    <result column="user_card" jdbcType="VARCHAR" property="userCard" />
+    <result column="user_adress" jdbcType="VARCHAR" property="userAdress" />
+    <result column="user_is_del" jdbcType="INTEGER" property="userIsDel" />
+  </resultMap>
+</mapper>

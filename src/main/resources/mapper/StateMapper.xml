@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.group.mapper.StateMapper">
+  <resultMap id="BaseResultMap" type="com.qf.group.domain.entity.State">
+    <id column="state_id" jdbcType="INTEGER" property="stateId" />
+    <result column="state_no" jdbcType="INTEGER" property="stateNo" />
+    <result column="state_public" jdbcType="INTEGER" property="statePublic" />
+    <result column="state_judgment" jdbcType="INTEGER" property="stateJudgment" />
+    <result column="state_submit" jdbcType="INTEGER" property="stateSubmit" />
+    <result column="state_sign" jdbcType="INTEGER" property="stateSign" />
+  </resultMap>
+</mapper>
